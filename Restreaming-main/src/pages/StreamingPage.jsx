@@ -1,4 +1,4 @@
-{/* iii */}
+{/* iii*/}
 import React, { useState } from 'react';
 import { Scan, Eye } from 'lucide-react';
 import TopNav from '../features/streaming/TopNav';
@@ -12,6 +12,10 @@ import OrderPanel from '../features/streaming/OrderPanel';
 import SetIndexPanel from '../features/streaming/SetIndexPanel';
 import SetIndexPanelMarket from '../features/streaming/SetIndexPanelMarket';
 import UserCard from '../features/streaming/UserCard';
+import PortfolioForUser from '../features/streaming/PortfolioForUser';
+import CreditBalanceSummary from '../features/streaming/CreditBalanceSummary';
+import Positions_Portfolio from '../features/streaming/Positions_Portfolio';
+import OutstandingOrder from '../features/streaming/OutstandingOrder';
 
 const StreamingPage = ({ isDarkMode, setIsDarkMode, onLogout }) => {
   const [activeTab, setActiveTab] = useState('Market');
@@ -149,8 +153,42 @@ const StreamingPage = ({ isDarkMode, setIsDarkMode, onLogout }) => {
       </main>
       )}
 
+
+
+      {/* ========== PORTFOLIO TAB ========== */}
+      {activeTab === 'Portfolio' && (
+      <main className="flex-1 flex flex-col p-3 lg:p-4 gap-3 overflow-hidden w-full max-w-[1920px] mx-auto h-[calc(100vh-52px)]">
+
+        {/* Top: Portfolio for user */}
+        <div className="flex-shrink-0 rounded-lg overflow-hidden border border-[#193254] bg-[#0d1525]">
+          <PortfolioForUser />
+        </div>
+
+        {/* Main row: Credit & Balance Summary */}
+        <div className="flex-shrink-0 rounded-lg overflow-hidden border border-[#193254] bg-[#0d1525]">
+          <CreditBalanceSummary />
+        </div>
+
+        {/* Main row: Positions*/}
+        <div className="flex-1 min-h-[300px] rounded-lg overflow-hidden border border-[#193254] bg-[#0d1525] flex flex-col">
+          <Positions_Portfolio />
+        </div>
+
+        {/* Main row: Outstanding Order*/}
+        <div className="flex-shrink-0 h-[250px] rounded-lg overflow-hidden border border-[#193254] bg-[#0d1525] flex flex-col">
+          <OutstandingOrder />
+        </div>
+
+        
+
+      </main>
+      )}
+
+
+
+
       {/* ========== OTHER TABS ( Coming Soon) ========== */}
-      {activeTab !== 'Market' && activeTab !== 'Technical' && (
+      {activeTab !== 'Market' && activeTab !== 'Technical' && activeTab !== 'Portfolio' && (
         <div className="flex-1 flex items-center justify-center text-gray-500 flex-col gap-3">
           <span className="text-5xl">🚧</span>
           <p className="text-lg font-medium text-gray-400">{activeTab}</p>
