@@ -1,3 +1,4 @@
+{/* iii */}
 import React, { useState } from 'react';
 import { Scan, Eye } from 'lucide-react';
 import TopNav from '../features/streaming/TopNav';
@@ -135,6 +136,7 @@ const StreamingPage = ({ isDarkMode, setIsDarkMode, onLogout }) => {
             </div>
           )}
 
+          
           {/* Center: Price Chart */}
           <div className="flex-1 flex flex-col min-h-0 rounded-[8px] overflow-hidden border border-[#193254]">
             <PriceChart stock={selectedStock} selectedTimeRange={selectedTimeRange} />
@@ -147,7 +149,7 @@ const StreamingPage = ({ isDarkMode, setIsDarkMode, onLogout }) => {
       </main>
       )}
 
-      {/* ========== OTHER TABS (Coming Soon) ========== */}
+      {/* ========== OTHER TABS ( Coming Soon) ========== */}
       {activeTab !== 'Market' && activeTab !== 'Technical' && (
         <div className="flex-1 flex items-center justify-center text-gray-500 flex-col gap-3">
           <span className="text-5xl">🚧</span>
